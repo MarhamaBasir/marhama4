@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<article class="media content-section">
+		<img class="rounded-circle article-img" src="{{ url_for('static', filename='foto/amma.jpg') }}">
+		<div class="media-body">
+			<div class="article-metadata">
+				<h5>About Me</h5>	
+			</div>
+			<table class="table">
+			  <tbody>
+			    <tr>
+			      <td>Name</td>
+			      <td>:Marhama Intan Chaerani</td>
+			    </tr>
+			    <tr>
+			      <td>Nick Name</td>
+			      <td>:Amma</td>
+			    </tr>
+			    <tr>
+			      <td>Email</td>
+			      <td>:<a href="https://mail.google.com/">marhama.basir@gmail.com</a></td>
+			    </tr>
+			    <tr>
+			      <td>From</td>
+			      <td>:Obi Island</td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+		
+	</article>
+
+{% endblock content %}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootsrap CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+
+	
+	{% if title %}
+		<title>Blogku -{{ title }}</title>
+	{% else %}
+		<title>Blogku</title>
+	{% endif %}
+</head>
+<body>
+
+	<header class="site-header">
+		<nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top">
+			<div class="container">
+				<a class="navbar-brand mr-4" href="/">AM_blog</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarToggle">
+					<div class="navbar-nav mr-auto">
+						<a class="nav-item nav-link" href="{{ url_for ('home') }}">Home</a>
+						<a class="nav-item nav-link" href="{{ url_for ('jadwal') }}">Jadwal</a>
+						<a class="nav-item nav-link" href="{{ url_for ('about') }}">About</a>				
+					</div>
+					<!--Navbar Right Side-->
+					<div class="navbar-nav">
+						<!-- ============TAMBAHKAN=========== -->
+						{% if current_user.is_authenticated %}
+						<!-- add in p.10========================================= -->
+						<a class="nav-item nav-link" href="{{ url_for('new_post') }}">New Post</a>
+						<!-- add in praktikum 8================================== -->
+						<a class="nav-item nav-link" href="{{ url_for ('account') }}">Account</a>
+						<!-- ==================================================== -->
+						<a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+						{% else %}
+						<a class="nav-item nav-link" href="{{ url_for ('login') }}">Sign In</a>
+						<a class="nav-item nav-link" href="{{ url_for ('registrasi') }}">Sign Up</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- <div class="container">
+		<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+		    <div class="carousel-inner">
+		    	<div class="carousel-item active">
+		      		<img class="d-block w-100" src="{{ url_for('static', filename='foto/satu.jpeg') }}" alt="First slide">
+		    	</div>
+		    	<div class="carousel-item">
+		      		<img class="d-block w-100" src="{{ url_for('static', filename='foto/dua.jpeg') }}" alt="Second slide">
+		    	</div>
+		    	<div class="carousel-item">
+		      		<img class="d-block w-100" src="{{ url_for('static', filename='foto/tiga.jpeg') }}" alt="Third slide">
+		    	</div>
+		  	</div>
+		</div>
+	</div> -->
+	<main role="main" class="container">
+		<div class="row">
+			<div class="col-md-8">
+				{% block content %}
+				{% endblock %}
+			</div>
+			<div class="col-md-4">
+				<div class="content-section bg-info">
+					<h3>Our Sidebar</h3>
+					<p class="text-muted">You can put any information here you'd like.
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-light">Latest Post</li>
+							<li class="list-group-item list-group-item-light">Announcements</li>
+							<li class="list-group-item list-group-item-light">Calenders</li>
+							<li class="list-group-item list-group-item-light">etc</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	<!-- Optional Javascript -->
+	<!-- jQuery first, then Popper.js, then Bootsrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+	<script src="{{ url_for('static', filename='js/Bootstrap.js') }}"></script>
+</body>
+</html>

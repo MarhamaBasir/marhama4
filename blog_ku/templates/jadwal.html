@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<h3>Data Dosen</h3>
+		<table class="table">
+		  <thead class="table-danger">
+		    <tr>
+		      <th scope="col">Nama</th>
+		      <th scope="col">NIDN</th>
+		      <th scope="col">Telpon</th>
+		      <th scope="col">Alamat</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    {% for dosen in dosens %}
+		    <tr>
+		      <td>{{ dosen.nama }}</td>
+		      <td>{{ dosen.nidn }}</td>
+		      <td>{{ dosen.tlp }}</td>
+		      <td>{{ dosen.alamat }}</td>
+		    </tr>
+		     {% endfor %}
+		  </tbody>
+		</table>
+		<br>
+	<h3>Data Matakuliah</h3>
+		<table class="table">
+		  <thead class="table-success">
+		    <tr>
+		      <th scope="col">Matakuliah</th>
+		      <th scope="col">SKS</th>
+		      <th scope="col">Ket</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for matakuliah in matakuliahs %}
+		    <tr>
+		      <td>{{ matakuliah.mapel }}</td>
+		      <td>{{ matakuliah.sks }}</td>
+		      <td>{{ matakuliah.ket }}</td>
+		    </tr>
+		    {% endfor %}
+		  </tbody>
+		</table>
+		<br>
+	<h3>Jadwal</h3>
+		<table class="table">
+		  <thead class="table-primary">
+		    <tr>
+		      <th scope="col">Hari</th>
+		      <th scope="col">Jam</th>
+		      <th scope="col">Dosen</th>
+		      <th scope="col">Matakuliah</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for jdl in jadwals %}
+		    <tr>
+		      <td>{{ jdl.hari }}</td>
+		      <td>{{ jdl.jam }}</td>
+		      <td>{{ jdl.nama_id }}</td>
+		      <td>{{ jdl.matkul }}</td>
+		    </tr>
+		    {% endfor %}
+		  </tbody>
+		</table>
+{% endblock content %}
